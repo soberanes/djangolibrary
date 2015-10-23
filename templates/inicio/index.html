@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	Home
+{% endblock %}
+
+{% block content %}
+	<!-- Header -->
+	{% if user.is_authenticated %}
+		<header id="header">
+			<h1>Hello {{user.username}}</h1>
+			<p>Comparte tu pasión por la lectura con otras personas, <br />
+			lo que has leído y lo que estás leyendo, mira reseñas de libros y alienta a otros a leer.</p>
+			<p>
+				<a href="/logout/">Salir</a>
+			</p>
+		</header>
+	{% else %}
+
+		<header id="header">
+			<h1>Libronautas</h1>
+			<p>Comparte tu pasión por la lectura con otras personas, <br />
+			lo que has leído y lo que estás leyendo, mira reseñas de libros y alienta a otros a leer.</p>
+		</header>
+		<!-- Signup Form -->
+		<form id="signup-form" method="post">
+			{% csrf_token %}
+			<input type="text" name="username" id="email" placeholder="Usuario" />
+			<input type="password" name="password" id="email" placeholder="Contraseña" />
+			<input type="submit" value="Sign In" />
+		</form>
+	{% endif %}
+
+{% endblock %}

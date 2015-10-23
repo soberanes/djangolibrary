@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Reportar Autor</title>
+    </head>
+    <body>
+        <h1>Todos los autores</h1>
+        {% for autor in autores %}
+            <li><b>Nombre:</b> {{autor.nombre}}</li>
+            <li><b>País:</b> {{autor.pais}}</li>
+            <li><b>Descripcion:</b> {{autor.descripcion}}</li>
+            <li><b>Foto:</b> <img src="{{MEDIA_URL}}{{autor.foto}}" alt="" width="100" /></li>
+        {% endfor %}
+    </body>
+</html>
